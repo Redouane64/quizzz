@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Quizzz</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title">Quizzz</string>
+    <string name="quizImageContentDescription">Quiz logo</string>
+    <string name="play_button">Play</string>
+    <string name="main_help_message">Click \'Play\' button below to start the quiz.</string>
+</resources>
