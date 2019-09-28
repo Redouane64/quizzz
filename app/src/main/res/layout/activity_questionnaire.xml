@@ -6,4 +6,94 @@
     android:layout_height="match_parent"
     tools:context=".QuestionnaireActivity">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.62" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.24" />
+
+    <TextView
+        android:id="@+id/questionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Do you like mashed potato?"
+        android:textAlignment="center"
+        android:textColor="@color/grey"
+        android:textColorHint="@color/grey"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/nextQuestionButton"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/next_question_button"
+        android:scaleType="fitCenter"
+        android:src="@drawable/right_arrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <ImageView
+        android:id="@+id/exitButton"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline4"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
+        app:srcCompat="@drawable/exit" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionText">
+
+        <RadioButton
+            android:id="@+id/firstOptionRadioButton"
+            style="@style/QuestionOption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Yes." />
+
+        <RadioButton
+            android:id="@+id/secondOptionRadioButton"
+            style="@style/QuestionOption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No." />
+
+        <RadioButton
+            android:id="@+id/thirdOptionRadioButton"
+            style="@style/QuestionOption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Maybe!" />
+    </RadioGroup>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.50121653" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

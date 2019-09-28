@@ -6,4 +6,5 @@
     <string name="quizImageContentDescription">Quiz logo</string>
     <string name="play_button">Play</string>
     <string name="main_help_message">Click \'Play\' button below to start the quiz.</string>
+    <string name="next_question_button">Next Question</string>
 </resources>
