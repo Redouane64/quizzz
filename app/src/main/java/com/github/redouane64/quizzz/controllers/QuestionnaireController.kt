@@ -1,6 +1,6 @@
 package com.github.redouane64.quizzz.controllers
 
-import com.github.redouane64.quizzz.Views.QuestionnaireView
+import com.github.redouane64.quizzz.views.QuestionnaireView
 import com.github.redouane64.quizzz.models.Question
 
 class QuestionnaireController(val view: QuestionnaireView) {
@@ -17,7 +17,7 @@ class QuestionnaireController(val view: QuestionnaireView) {
 
     fun getCurrentQuestion() : Question = this.questions[this.currentQuestionIndex];
 
-    fun currentQuestionHasAnswer() = this.questions[currentQuestionIndex].selectedAnswer != null;
+    fun currentQuestionHasAnswer() = this.getCurrentQuestion().selectedAnswer != null;
 
     fun setAnswer(index: Int) {
         this.getCurrentQuestion().selectedAnswer = index

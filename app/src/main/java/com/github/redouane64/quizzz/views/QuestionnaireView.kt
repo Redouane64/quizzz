@@ -1,4 +1,4 @@
-package com.github.redouane64.quizzz.Views
+package com.github.redouane64.quizzz.views
 
 interface QuestionnaireView {
 
