@@ -8,6 +8,8 @@ interface QuestionnaireView {
 
     fun setOptions(options: Array<String>);
 
+    fun selectOption();
+
     fun finish();
 
 }

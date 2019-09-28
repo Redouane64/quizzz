@@ -13,13 +13,15 @@ class QuestionnaireController(val view: QuestionnaireView) {
 
     private var currentQuestionIndex = 0;
 
-    fun nextQuestion() {
+    fun nextQuestion() = ++currentQuestionIndex;
 
-    }
+    fun getCurrentQuestion() : Question = this.questions[this.currentQuestionIndex];
 
-    fun getCurrentQuestion() : Question {
-        return this.questions[this.currentQuestionIndex];
-    }
+    fun currentQuestionHasAnswer() = this.questions[currentQuestionIndex].selectedAnswer != null;
+
+    fun setAnswer(index: Int) {
+        this.getCurrentQuestion().selectedAnswer = index
+    };
 
     fun renderQuestion(question: Question) {
         this.view.setQuestion(question.text);
