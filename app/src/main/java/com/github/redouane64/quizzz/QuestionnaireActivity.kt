@@ -53,7 +53,10 @@ class QuestionnaireActivity : AppCompatActivity(), QuestionnaireView {
 
         when (questionnaireController.previousQuestion()) {
 
-            -1 -> questionnaireController.exitToMainScreen(this);
+            -1 -> {
+                finish(); // remove this activity when going back to Main screen.
+                questionnaireController.exitToMainScreen(this);
+            }
 
             0 -> optionsRadioGroup.check(firstOptionRadioButton.id);
             1 -> optionsRadioGroup.check(secondOptionRadioButton.id);
@@ -121,6 +124,8 @@ class QuestionnaireActivity : AppCompatActivity(), QuestionnaireView {
 
         // Set click action to Next and Previous UI Buttons.
         nextQuestionButton.setOnClickListener { this.nextQuestion(); }
-        exitButton.setOnClickListener { this.previousQuestion(); }
+        exitButton.setOnClickListener {
+            this.previousQuestion();
+        }
     }
 }
