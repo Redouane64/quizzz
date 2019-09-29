@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity(), MainView {
 
         playButton.setOnClickListener {
             this.start();
+
+            finish();
         }
     }
 

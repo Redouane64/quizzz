@@ -11,7 +11,7 @@ class QuestionnaireController(private val view: QuestionnaireView) {
 
     companion object {
 
-        public val questions = arrayListOf(
+               public val questions = arrayListOf(
             Question("Question 1", arrayOf("Option 1", "Option 2", "Option 3"), 0),
             Question("Question 2", arrayOf("Option 1", "Option 2", "Option 3"), 0),
             Question("Question 3", arrayOf("Option 1", "Option 2", "Option 3"), 0)

@@ -13,4 +13,8 @@
     <string name="result_screen_title">Your final score</string>
     <string name="restart_button_text">Restart</string>
     <string name="exit_button_text">Exit</string>
+    <string name="bad_score">Bad! Try Again.</string>
+    <string name="not_bad">Not Bad! But You May Do Better.</string>
+    <string name="good_or_better_yet">Good! Or Better Yet!</string>
+    <string name="excellent">Excellent!</string>
 </resources>

@@ -10,6 +10,6 @@ interface QuestionnaireView {
 
     fun setOptions(options: Array<String>);
 
-    fun finish();
+    fun complete();
 
 }

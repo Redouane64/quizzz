@@ -27,7 +27,8 @@
         android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-thin"
         android:text="Excellent!"
-        android:textSize="80sp"
+        android:textAlignment="center"
+        android:textSize="60sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
@@ -39,6 +40,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-thin"
         android:text="100 %"
+        android:textAlignment="center"
         android:textSize="90sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,6 +56,7 @@
         android:layout_marginBottom="16dp"
         android:fontFamily="sans-serif-thin"
         android:text="5 Correct"
+        android:textAlignment="center"
         android:textColor="#388E3C"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
@@ -89,19 +92,18 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="#00FFFFFF"
-        android:backgroundTint="#00FFFFFF"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
         app:srcCompat="@drawable/restart_icon" />
 
     <ImageButton
-        android:id="@+id/backButton"
+        android:id="@+id/exitButton"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:background="#FFFFFF"
+        android:background="#00FFFFFF"
         android:scaleType="centerCrop"
         app:layout_constraintStart_toStartOf="@+id/guideline9"
         app:layout_constraintTop_toTopOf="@+id/guideline7"
@@ -125,8 +127,8 @@
         android:layout_marginTop="8dp"
         android:text="@string/exit_button_text"
         android:textColor="@color/red"
-        app:layout_constraintEnd_toEndOf="@+id/backButton"
-        app:layout_constraintStart_toStartOf="@+id/backButton"
-        app:layout_constraintTop_toBottomOf="@+id/backButton" />
+        app:layout_constraintEnd_toEndOf="@+id/exitButton"
+        app:layout_constraintStart_toStartOf="@+id/exitButton"
+        app:layout_constraintTop_toBottomOf="@+id/exitButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

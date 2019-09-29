@@ -1,7 +1,6 @@
 package com.github.redouane64.quizzz
 
 import android.os.Bundle
-import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.github.redouane64.quizzz.controllers.QuestionnaireController
@@ -72,7 +71,7 @@ class QuestionnaireActivity : AppCompatActivity(), QuestionnaireView {
                 }
 
             } else {
-                finish();
+                complete();
             }
 
             return;
@@ -81,8 +80,9 @@ class QuestionnaireActivity : AppCompatActivity(), QuestionnaireView {
         Toast.makeText(this, R.string.must_choose_answer, Toast.LENGTH_LONG).show();
     }
 
-    override fun finish() {
+    override fun complete() {
         questionnaireController.finish(this);
+        finish();
     }
 
     private val questionnaireController : QuestionnaireController = QuestionnaireController(this);
@@ -98,6 +98,6 @@ class QuestionnaireActivity : AppCompatActivity(), QuestionnaireView {
             this.nextQuestion();
         }
 
-        backButton.setOnClickListener { this.previousQuestion(); }
+        exitButton.setOnClickListener { this.previousQuestion(); }
     }
 }
