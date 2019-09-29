@@ -27,8 +27,9 @@ class ResultActivity : AppCompatActivity(), ResultView {
         resultScoreText.text = "${"%.0f".format(ceil(value))} %";
     }
 
+    @SuppressLint("SetTextI18n")
     override fun setCorrectAnswers(value: Int) {
-        correctAnswersText.text = value.toString();
+        correctAnswersText.text = "$value ${resources.getString(R.string.correct_answers)}";
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

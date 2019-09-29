@@ -11,10 +11,12 @@ class QuestionnaireController(private val view: QuestionnaireView) {
 
     companion object {
 
-               public val questions = arrayListOf(
-            Question("Question 1", arrayOf("Option 1", "Option 2", "Option 3"), 0),
-            Question("Question 2", arrayOf("Option 1", "Option 2", "Option 3"), 0),
-            Question("Question 3", arrayOf("Option 1", "Option 2", "Option 3"), 0)
+        public val questions = arrayListOf(
+            Question("What is love?", arrayOf("Baby", "Don't Hurt Me", "No More"), 0),
+            Question("Do you like Android", arrayOf("Yes, Goddamn It", "Hell No", "Sabaka"), 1),
+            Question("My name is Jeff?", arrayOf("Yes", "No", "Yes"), 2),
+            Question("Do you know the way?", arrayOf("Potato", "Beaver", "Skunk"), 1),
+            Question("What do you want?", arrayOf("Ice Cream", "SpongeBob", "Dunk"), 0)
         );
 
     }
