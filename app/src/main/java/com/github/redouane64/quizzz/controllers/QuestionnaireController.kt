@@ -7,14 +7,17 @@ import com.github.redouane64.quizzz.ResultActivity
 import com.github.redouane64.quizzz.views.QuestionnaireView
 import com.github.redouane64.quizzz.models.Question
 
-class QuestionnaireController(val view: QuestionnaireView) {
+class QuestionnaireController(private val view: QuestionnaireView) {
 
-    private val questions = arrayListOf(
-        Question("Question 1", arrayOf("Option 1", "Option 2", "Option 3"), 0),
-        Question("Question 2", arrayOf("Option 1", "Option 2", "Option 3"), 0),
-        Question("Question 3", arrayOf("Option 1", "Option 2", "Option 3"), 0)
-    );
+    companion object {
 
+        public val questions = arrayListOf(
+            Question("Question 1", arrayOf("Option 1", "Option 2", "Option 3"), 0),
+            Question("Question 2", arrayOf("Option 1", "Option 2", "Option 3"), 0),
+            Question("Question 3", arrayOf("Option 1", "Option 2", "Option 3"), 0)
+        );
+
+    }
     private var currentQuestionIndex = 0;
 
     fun nextQuestion() = ++currentQuestionIndex;
@@ -30,7 +33,7 @@ class QuestionnaireController(val view: QuestionnaireView) {
         return previousQuestion.selectedAnswer;
     }
 
-    fun getCurrentQuestion() : Question = this.questions[this.currentQuestionIndex];
+    fun getCurrentQuestion() : Question = QuestionnaireController.questions[this.currentQuestionIndex];
 
     fun hasNextQuestion() = this.currentQuestionIndex < questions.size - 1;
 
