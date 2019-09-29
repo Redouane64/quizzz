@@ -9,21 +9,17 @@ import com.github.redouane64.quizzz.models.Question
 
 class QuestionnaireController(private val view: QuestionnaireView) {
 
-    companion object {
-
-        // This is hard coded questions list, it is static so it can be accessed
-        // from different places in code. It can be designed differently, for example:
-        // read from a JSON file or reterived from RESTful API.
-        // But for purpose of our application, static and hard coded list is okay.
-        public val questions = arrayListOf(
-            Question("What is love?", arrayOf("Baby", "Don't Hurt Me", "No More"), 0),
-            Question("Do you like Android", arrayOf("Yes, Goddamn It", "Hell No", "Sabaka"), 1),
-            Question("My name is Jeff?", arrayOf("Yes", "No", "Yes"), 2),
-            Question("Do you know the way?", arrayOf("Potato", "Beaver", "Skunk"), 1),
-            Question("What do you want?", arrayOf("Ice Cream", "SpongeBob", "Dunk"), 0)
-        );
-
-    }
+    // This is hard coded questions list, it is static so it can be accessed
+    // from different places in code. It can be designed differently, for example:
+    // read from a JSON file or retrieved from RESTful API.
+    // But for purpose of our application, static and hard coded list is okay.
+    private val questions = arrayListOf(
+        Question("What is love?", arrayOf("Baby", "Don't Hurt Me", "No More"), 0),
+        Question("Do you like Android", arrayOf("Yes, Goddamn It", "Hell No", "Sabaka"), 1),
+        Question("My name is Jeff?", arrayOf("Yes", "No", "Yes"), 2),
+        Question("Do you know the way?", arrayOf("Potato", "Beaver", "Skunk"), 1),
+        Question("What do you want?", arrayOf("Ice Cream", "SpongeBob", "Dunk"), 0)
+    );
 
     // Index to track which question is currently displayed.
     private var currentQuestionIndex = 0;
@@ -44,7 +40,7 @@ class QuestionnaireController(private val view: QuestionnaireView) {
     }
 
     // Return current Question object.
-    fun getCurrentQuestion() : Question = QuestionnaireController.questions[this.currentQuestionIndex];
+    fun getCurrentQuestion() : Question = this.questions[this.currentQuestionIndex];
 
     // Check if there is a next question.
     // It used before to test before call to nextQuestion() method.
@@ -60,6 +56,13 @@ class QuestionnaireController(private val view: QuestionnaireView) {
     // Start Result activity.
     fun finish(activity: Activity) {
         val resultActivityIntent = Intent(activity, ResultActivity::class.java);
+
+        val correctAnswers = questions.filter { q -> q.selectedAnswer == q.correctAnswer }.size;
+        val score = correctAnswers.toDouble() / questions.size.toDouble() * 100
+
+        resultActivityIntent.putExtra("CORRECT_ANSWERS", correctAnswers)
+        resultActivityIntent.putExtra("SCORE", score)
+
         activity.startActivity(resultActivityIntent);
     }
 
@@ -73,6 +76,8 @@ class QuestionnaireController(private val view: QuestionnaireView) {
     // This is called when the current question is the first, so clicking back
     // takes you to the Main Activity (starting page).
     fun exitToMainScreen(context: Activity) {
+
+
         val mainScreenIntent = Intent(context, MainActivity::class.java);
         context.startActivity(mainScreenIntent);
     }

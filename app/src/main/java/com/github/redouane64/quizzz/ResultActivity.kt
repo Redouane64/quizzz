@@ -36,9 +36,13 @@ class ResultActivity : AppCompatActivity(), ResultView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
+        var score = intent.getDoubleExtra("SCORE", 0.0);
+        val correctAnswers = intent.getIntExtra("CORRECT_ANSWERS", 0);
+
         exitButton.setOnClickListener {
             // Clear saved answers.
-            this.resultController.clearAnswers();
+            // this.resultController.clearAnswers();
+
             // Exit the entire app.
             MainView.exit(this)
         }
@@ -50,8 +54,8 @@ class ResultActivity : AppCompatActivity(), ResultView {
             finish();
         }
 
-        setScore(this.resultController.getScore());
-        setScoreText(resources.getString(this.resultController.getScoreText()));
-        setCorrectAnswers(this.resultController.getCorrectAnswers());
+        setScore(score);
+        setScoreText(resources.getString(this.resultController.getScoreText(score)));
+        setCorrectAnswers(correctAnswers);
     }
 }
