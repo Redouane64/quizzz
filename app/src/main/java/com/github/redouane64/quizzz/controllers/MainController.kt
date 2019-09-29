@@ -7,8 +7,10 @@ import com.github.redouane64.quizzz.QuestionnaireActivity
 
 class MainController {
 
+    // Start Questionnaire activity.
     fun start(context : Activity) {
 
+        // Log some crap.
         Log.d(this.toString(),"Start method executed.");
 
         val questionnaireIntent = Intent(context, QuestionnaireActivity::class.java);

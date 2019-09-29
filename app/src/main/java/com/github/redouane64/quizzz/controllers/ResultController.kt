@@ -26,12 +26,18 @@ class ResultController(val view : ResultView) {
 
     fun restart(context: Activity) {
 
+        // Clear sqved answers of questions list.
+        this.clearAnswers()
+
+        // Navigate to Question screen.
+        val questionnaireActivityIntent = Intent(context, QuestionnaireActivity::class.java);
+        context.startActivity(questionnaireActivityIntent);
+    }
+
+    fun clearAnswers() {
         for (q in QuestionnaireController.questions) {
             q.selectedAnswer = null;
         }
-
-        val questionnaireActivityIntent = Intent(context, QuestionnaireActivity::class.java);
-        context.startActivity(questionnaireActivityIntent);
     }
 
 }

@@ -37,18 +37,17 @@ class ResultActivity : AppCompatActivity(), ResultView {
         setContentView(R.layout.activity_result)
 
         exitButton.setOnClickListener {
-
+            // Clear saved answers.
+            this.resultController.clearAnswers();
             // Exit the entire app.
             MainView.exit(this)
         }
 
         restartButton.setOnClickListener {
-
-            // Finish this activity from the back stack.
-            finish();
-
             // Go back to question list.
             restart();
+            // Finish this activity from the back stack.
+            finish();
         }
 
         setScore(this.resultController.getScore());

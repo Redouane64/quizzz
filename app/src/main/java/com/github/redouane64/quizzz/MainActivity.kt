@@ -19,10 +19,14 @@ class MainActivity : AppCompatActivity(), MainView {
         setContentView(R.layout.activity_main)
 
         playButton.setOnClickListener {
+            // Start Questionnaire activity.
             this.start();
 
+            // Clear current activity from activities back stack.
             finish();
         }
+
+        exitButton.setOnClickListener { MainView.exit(this); }
     }
 
 }
