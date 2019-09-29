@@ -14,6 +14,11 @@
         <item name="android:textColor">@color/grey</item>
         <item name="android:tint">@color/grey</item>
         <item name="android:layout_margin">8dp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+    </style>
+
+    <style name="Numbers">
+        <item name="android:textSize">72sp</item>
     </style>
 
 </resources>

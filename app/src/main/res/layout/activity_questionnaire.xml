@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.62" />
+        app:layout_constraintGuide_percent="0.71" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -26,6 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:fontFamily="sans-serif-light"
         android:text="Do you like mashed potato?"
         android:textAlignment="center"
         android:textColor="@color/grey"
@@ -50,14 +51,14 @@
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <ImageView
-        android:id="@+id/exitButton"
+        android:id="@+id/backButton"
         android:layout_width="128dp"
         android:layout_height="128dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:srcCompat="@drawable/exit" />
+        app:srcCompat="@drawable/back_arrow" />
 
     <RadioGroup
         android:id="@+id/optionsRadioGroup"

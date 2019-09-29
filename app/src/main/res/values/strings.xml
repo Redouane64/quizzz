@@ -7,5 +7,10 @@
     <string name="play_button">Play</string>
     <string name="main_help_message">Click \'Play\' button below to start the quiz.</string>
     <string name="next_question_button">Next Question</string>
-    <string name="must_choose_answer">You must select an answer.</string>
+    <string name="must_choose_answer">Please select an answer option.</string>
+    <string name="total_question_count">Total</string>
+    <string name="correct_answers">Correct Answers</string>
+    <string name="result_screen_title">Your final score</string>
+    <string name="restart_button_text">Restart</string>
+    <string name="exit_button_text">Exit</string>
 </resources>

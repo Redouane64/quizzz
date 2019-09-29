@@ -2,6 +2,7 @@ package com.github.redouane64.quizzz
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.github.redouane64.quizzz.models.Question
 
 class ResultActivity : AppCompatActivity() {
 

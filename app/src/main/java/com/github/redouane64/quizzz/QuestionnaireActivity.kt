@@ -1,23 +1,31 @@
 package com.github.redouane64.quizzz
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.github.redouane64.quizzz.views.QuestionnaireView
-import com.github.redouane64.quizzz.controllers.QuestionnaireController
-import kotlinx.android.synthetic.main.activity_questionnaire.*
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.github.redouane64.quizzz.controllers.QuestionnaireController
+import com.github.redouane64.quizzz.views.QuestionnaireView
+import kotlinx.android.synthetic.main.activity_questionnaire.*
 
 
 class QuestionnaireActivity : AppCompatActivity(), QuestionnaireView {
 
-    override fun selectOption() {
+    private fun checkAnswerAtIndex(index: Int?) {
+        when (index) {
+            0 -> optionsRadioGroup.check(firstOptionRadioButton.id);
+            1 -> optionsRadioGroup.check(secondOptionRadioButton.id);
+            2 -> optionsRadioGroup.check(thirdOptionRadioButton.id);
+        }
+    }
 
-        val radioButtonID = optionsRadioGroup.checkedRadioButtonId
-        val radioButton = optionsRadioGroup.findViewById<RadioButton>(radioButtonID)
-        val index = optionsRadioGroup.indexOfChild(radioButton)
-
-        questionnaireController.setAnswer(index);
+    private fun getCheckedAnswerIndex() : Int? {
+        return when {
+            firstOptionRadioButton.isChecked -> 0
+            secondOptionRadioButton.isChecked -> 1
+            thirdOptionRadioButton.isChecked -> 2
+            else -> null
+        };
     }
 
     override fun setQuestion(question: String) {
@@ -32,25 +40,49 @@ class QuestionnaireActivity : AppCompatActivity(), QuestionnaireView {
 
     }
 
+    override fun previousQuestion() {
+
+        when (questionnaireController.previousQuestion()) {
+
+            -1 -> questionnaireController.exitToMainScreen(this);
+
+            0 -> optionsRadioGroup.check(firstOptionRadioButton.id);
+            1 -> optionsRadioGroup.check(secondOptionRadioButton.id);
+            2 -> optionsRadioGroup.check(thirdOptionRadioButton.id);
+        }
+    }
+
     override fun nextQuestion() {
 
-        if(questionnaireController.currentQuestionHasAnswer()) {
+        val checkAnswer = this.getCheckedAnswerIndex();
 
-            optionsRadioGroup.clearCheck();
+        if(checkAnswer != null) {
 
-            // TODO:
-            questionnaireController.nextQuestion();
-            questionnaireController.renderQuestion(questionnaireController.getCurrentQuestion());
+            questionnaireController.setAnswer(checkAnswer);
+
+            if(questionnaireController.hasNextQuestion()) {
+                questionnaireController.nextQuestion();
+
+                optionsRadioGroup.clearCheck();
+                val nextQuestion = questionnaireController.getCurrentQuestion();
+                questionnaireController.renderQuestion(nextQuestion);
+
+                if(nextQuestion.selectedAnswer != null) {
+                    this.checkAnswerAtIndex(nextQuestion.selectedAnswer);
+                }
+
+            } else {
+                finish();
+            }
 
             return;
         }
 
-        // TODO: Show toast says that the user has to choose an answer in order to proceed.
         Toast.makeText(this, R.string.must_choose_answer, Toast.LENGTH_LONG).show();
     }
 
     override fun finish() {
-
+        questionnaireController.finish(this);
     }
 
     private val questionnaireController : QuestionnaireController = QuestionnaireController(this);
@@ -62,12 +94,10 @@ class QuestionnaireActivity : AppCompatActivity(), QuestionnaireView {
         val question = questionnaireController.getCurrentQuestion();
         questionnaireController.renderQuestion(question);
 
-        optionsRadioGroup.setOnCheckedChangeListener { _, _ ->
-            selectOption();
+        nextQuestionButton.setOnClickListener {
+            this.nextQuestion();
         }
 
-        nextQuestionButton.setOnClickListener {
-            nextQuestion();
-        }
+        backButton.setOnClickListener { this.previousQuestion(); }
     }
 }
